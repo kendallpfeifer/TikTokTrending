@@ -14585,9 +14585,19 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
 <h2 id="Table-Of-Contents:">Table Of Contents:<a class="anchor-link" href="#Table-Of-Contents:">&#182;</a></h2><ul>
 <li><a href="#introduction">Introduction</a></li>
-<li><a href="#settingup">Setting Up</a></li>
-<li><a href="#compiling">Compiling</a></li>
+<li><a href="#settingup">Setting Up</a><ul>
+<li><a href="#imports">Important Imports</a></li>
+<li><a href="#load">Load the Data!</a></li>
+<li><a href="#cleanup">Data Cleanup</a></li>
+</ul>
+</li>
 <li><a href="#hypothesis">Hypothesis</a></li>
+<li><a href="#compiling">Compiling</a><ul>
+<li><a href="#getfreq">Get Frequencies</a></li>
+<li><a href="#connviews">Connect Variables and Views</a></li>
+<li><a href="#connfreq">Connect Frequencies and Views</a></li>
+</ul>
+</li>
 <li><a href="#relationship">Is There a Linear Relationship?</a></li>
 </ul>
 
@@ -14606,7 +14616,44 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@adventuringwithnala/video/7082088095574887726" data-video-id="7082088095574887726" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@adventuringwithnala" href="https://www.tiktok.com/@adventuringwithnala">@adventuringwithnala</a> <p>Nala stomps serotonin boost. ❤️ Going out to film “Talking to my dog in the wild, part 2” today. Did you see part 1??</p> <a target="_blank" title="♬ original sound - Chris and Nala" href="https://www.tiktok.com/music/original-sound-7082088069830101806">♬ original sound - Chris and Nala</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@ryukspitstop/video/7085506934958296363" data-video-id="7085506934958296363" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@ryukspitstop" href="https://www.tiktok.com/@ryukspitstop">@ryukspitstop</a> 3 weird things my ✨pink✨ floof enjoys <a title="dogsofttiktok" target="_blank" href="https://www.tiktok.com/tag/dogsofttiktok">#dogsofttiktok</a> <a title="fyp" target="_blank" href="https://www.tiktok.com/tag/fyp">#fyp</a> <a target="_blank" title="♬ Blue Blood - Heinz Kiessling &#38; Various Artists" href="https://www.tiktok.com/music/Blue-Blood-6778968637492430849">♬ Blue Blood - Heinz Kiessling &#38; Various Artists</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
 <blockquote class="tiktok-embed" cite="https://www.tiktok.com/@linuxluvr/video/7091654501743988010" data-video-id="7091654501743988010" style="max-width: 605px;min-width: 325px;" > <section> <a target="_blank" title="@linuxluvr" href="https://www.tiktok.com/@linuxluvr">@linuxluvr</a> <p></p> <a target="_blank" title="♬ Miami, My Amy - Keith Whitley" href="https://www.tiktok.com/music/Miami-My-Amy-120346207">♬ Miami, My Amy - Keith Whitley</a> </section> </blockquote> <script async src="https://www.tiktok.com/embed.js"></script>
-<h2 id="Setting-up-">Setting up <a class="anchor" id="settingup" /><a class="anchor-link" href="#Setting-up-">&#182;</a></h2>
+<h2 id="Setting-up-">Setting up <a class="anchor" id="settingup" /><a class="anchor-link" href="#Setting-up-">&#182;</a></h2><h3 id="Imports-">Imports <a class="anchor" id="imports" /><a class="anchor-link" href="#Imports-">&#182;</a></h3><p>You'll need the following imports for this project:</p>
+
+</div>
+</div>
+</div>
+</div><div class="jp-Cell jp-CodeCell jp-Notebook-cell jp-mod-noOutputs  ">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea">
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[193]:</div>
+<div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
+     <div class="CodeMirror cm-s-jupyter">
+<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
+<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
+<span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
+<span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
+<span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
+<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">linear_model</span>
+<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
+<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
+</pre></div>
+
+     </div>
+</div>
+</div>
+</div>
+
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h3 id="Load-the-Data-">Load the Data <a class="anchor" id="load" /><a class="anchor-link" href="#Load-the-Data-">&#182;</a></h3><p>Now, we want to load the Json data from the current repository. This data can be found at <a href="https://www.kaggle.com/datasets/erikvdven/tiktok-trending-december-2020">https://www.kaggle.com/datasets/erikvdven/tiktok-trending-december-2020</a> if you need to download it! Use json.load to open the data, and use pandas to put it into a dataframe. We can see a sample of the dataframe strucure below</p>
+
 </div>
 </div>
 </div>
@@ -14615,18 +14662,15 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[130]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[194]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">json</span>
-<span class="kn">import</span> <span class="nn">pandas</span> <span class="k">as</span> <span class="nn">pd</span>
-
-<span class="c1">#load the JSON from the current directory</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#load the JSON from the current directory</span>
 <span class="n">data</span> <span class="o">=</span> <span class="n">json</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="nb">open</span><span class="p">(</span><span class="s1">&#39;trending.json&#39;</span><span class="p">))</span>
 
 <span class="c1">#turn the data into a pandas dataframe for easier analysis</span>
 <span class="n">df</span> <span class="o">=</span> <span class="n">pd</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">data</span><span class="p">[</span><span class="s1">&#39;collector&#39;</span><span class="p">])</span>
-<span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">6</span><span class="p">)</span>
+<span class="n">df</span><span class="o">.</span><span class="n">sample</span><span class="p">(</span><span class="mi">4</span><span class="p">)</span>
 </pre></div>
 
      </div>
@@ -14644,7 +14688,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[130]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[194]:</div>
 
 
 
@@ -14688,44 +14732,44 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   </thead>
   <tbody>
     <tr>
-      <th>605</th>
-      <td>6880848041792802053</td>
-      <td>#greenscreensticker #okboomer</td>
-      <td>1602072423</td>
-      <td>{'id': '6663037640240283653', 'secUid': 'MS4wL...</td>
-      <td>{'musicId': '6880848244038044422', 'musicName'...</td>
+      <th>472</th>
+      <td>6878165800902085890</td>
+      <td>#kawaii# payton# addisonre# #queen #song #ninj...</td>
+      <td>1601447774</td>
+      <td>{'id': '6698475690889708550', 'secUid': 'MS4wL...</td>
+      <td>{'musicId': '6878165800604191490', 'musicName'...</td>
       <td>{'default': 'https://p16-sign-sg.tiktokcdn.com...</td>
-      <td>https://www.tiktok.com/@macsmisadventures/vide...</td>
-      <td>https://v21.tiktokcdn.com/video/tos/useast2a/t...</td>
+      <td>https://www.tiktok.com/@nazartanhajan05/video/...</td>
+      <td>https://v77.tiktokcdn.com/9971e704d11fdbe9aff2...</td>
       <td></td>
-      <td>{'height': 1024, 'width': 576, 'duration': 59}</td>
-      <td>22000</td>
-      <td>337</td>
-      <td>78100</td>
-      <td>900</td>
+      <td>{'height': 960, 'width': 544, 'duration': 15}</td>
+      <td>288</td>
+      <td>9</td>
+      <td>4100</td>
+      <td>16</td>
       <td>True</td>
-      <td>[]</td>
-      <td>[{'id': '1602434124452870', 'name': 'greenscre...</td>
+      <td>[@naseer_baloch_006, @rashidkh, @balochisking05]</td>
+      <td>[{'id': '4236', 'name': 'kawaii', 'title': '',...</td>
     </tr>
     <tr>
-      <th>917</th>
-      <td>6902436491536944386</td>
-      <td>WEL EENS PIJN GEHAD DAT PLOTSELING VERDWEEN? #...</td>
-      <td>1607098733</td>
-      <td>{'id': '6725517136239035398', 'secUid': 'MS4wL...</td>
-      <td>{'musicId': '6894066988063131649', 'musicName'...</td>
+      <th>554</th>
+      <td>6881353341465611525</td>
+      <td>Reply to @jack_weight #foryoupage #fyp #foryou...</td>
+      <td>1602189964</td>
+      <td>{'id': '6809091326287905797', 'secUid': 'MS4wL...</td>
+      <td>{'musicId': '6881353362240031494', 'musicName'...</td>
       <td>{'default': 'https://p16-sign-sg.tiktokcdn.com...</td>
-      <td>https://www.tiktok.com/@arnold.balde/video/690...</td>
-      <td>https://v77.tiktokcdn.com/58cbfd796f307f52b4a5...</td>
+      <td>https://www.tiktok.com/@timmytimmadome/video/6...</td>
+      <td>https://v77.tiktokcdn.com/94f7c451d1802677897a...</td>
       <td></td>
-      <td>{'height': 1024, 'width': 576, 'duration': 17}</td>
-      <td>5812</td>
-      <td>4</td>
-      <td>43500</td>
-      <td>86</td>
+      <td>{'height': 1024, 'width': 576, 'duration': 57}</td>
+      <td>9073</td>
+      <td>14</td>
+      <td>81300</td>
+      <td>130</td>
       <td>True</td>
-      <td>[]</td>
-      <td>[{'id': '696879', 'name': 'pijn', 'title': '',...</td>
+      <td>[@jack_weight]</td>
+      <td>[{'id': '88764338', 'name': 'foryoupage', 'tit...</td>
     </tr>
     <tr>
       <th>99</th>
@@ -14748,64 +14792,24 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
       <td>[{'id': '42164', 'name': 'foryou', 'title': ''...</td>
     </tr>
     <tr>
-      <th>303</th>
-      <td>6900949746962238721</td>
-      <td>Antwoorden aan @x.roosf.10 De 5e in je @ wil i...</td>
-      <td>1606752573</td>
-      <td>{'id': '212973565657317376', 'secUid': 'MS4wLj...</td>
-      <td>{'musicId': '6900949747629165313', 'musicName'...</td>
+      <th>277</th>
+      <td>6897005299798936834</td>
+      <td>MiG-31 #axaviacion #fyp #foryou #parati #trans...</td>
+      <td>1605834187</td>
+      <td>{'id': '6855323034770916357', 'secUid': 'MS4wL...</td>
+      <td>{'musicId': '6810066900878494470', 'musicName'...</td>
       <td>{'default': 'https://p16-sign-sg.tiktokcdn.com...</td>
-      <td>https://www.tiktok.com/@chelseamelody/video/69...</td>
-      <td>https://v77.tiktokcdn.com/ae7c3e3bc493e7b5327d...</td>
+      <td>https://www.tiktok.com/@axaviationdefence/vide...</td>
+      <td>https://v77.tiktokcdn.com/7ffcc3ed61ca671c1693...</td>
       <td></td>
-      <td>{'height': 1024, 'width': 576, 'duration': 59}</td>
-      <td>36300</td>
-      <td>36</td>
-      <td>260800</td>
-      <td>1099</td>
-      <td>True</td>
-      <td>[@x]</td>
-      <td>[{'id': '12419', 'name': 'blackwhite', 'title'...</td>
-    </tr>
-    <tr>
-      <th>994</th>
-      <td>6879000638458449153</td>
-      <td>😜😜😜#magikbijjouslapen#love#nederland#fyp#foryo...</td>
-      <td>1601642148</td>
-      <td>{'id': '6818871838464050181', 'secUid': 'MS4wL...</td>
-      <td>{'musicId': '6836709783203105541', 'musicName'...</td>
-      <td>{'default': 'https://p16-sign-sg.tiktokcdn.com...</td>
-      <td>https://www.tiktok.com/@verooontjuh/video/6879...</td>
-      <td>https://v77.tiktokcdn.com/0d8c503d86bf10d666ed...</td>
-      <td></td>
-      <td>{'height': 1024, 'width': 576, 'duration': 8}</td>
-      <td>218</td>
-      <td>1</td>
-      <td>3313</td>
-      <td>18</td>
+      <td>{'height': 1040, 'width': 576, 'duration': 14}</td>
+      <td>2409</td>
+      <td>37</td>
+      <td>36000</td>
+      <td>76</td>
       <td>True</td>
       <td>[]</td>
-      <td>[{'id': '1671999227560965', 'name': 'magikbijj...</td>
-    </tr>
-    <tr>
-      <th>997</th>
-      <td>6883484287434378497</td>
-      <td>#fy #foryoupage #foryou</td>
-      <td>1602686079</td>
-      <td>{'id': '6792309272296129541', 'secUid': 'MS4wL...</td>
-      <td>{'musicId': '6863497148655225605', 'musicName'...</td>
-      <td>{'default': 'https://p16-sign-sg.tiktokcdn.com...</td>
-      <td>https://www.tiktok.com/@sanaelfarah/video/6883...</td>
-      <td>https://v77.tiktokcdn.com/eed7b93664d2cfa5b122...</td>
-      <td></td>
-      <td>{'height': 1024, 'width': 576, 'duration': 13}</td>
-      <td>26600</td>
-      <td>3392</td>
-      <td>449300</td>
-      <td>668</td>
-      <td>True</td>
-      <td>[]</td>
-      <td>[{'id': '153828', 'name': 'fy', 'title': '', '...</td>
+      <td>[{'id': '1673666573981701', 'name': 'axaviacio...</td>
     </tr>
   </tbody>
 </table>
@@ -14825,7 +14829,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>We don't care much about anything other than views, mentions and hashtags, so we can clean the data up further</p>
+<h3 id="Data-Cleanup-">Data Cleanup <a class="anchor" id="cleanup" /><a class="anchor-link" href="#Data-Cleanup-">&#182;</a></h3><p>We don't care much about anything other than views, mentions and hashtags, so we can clean the data up further</p>
 
 </div>
 </div>
@@ -14835,7 +14839,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[131]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[195]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="n">df</span><span class="o">.</span><span class="n">drop</span><span class="p">({</span><span class="s1">&#39;covers&#39;</span><span class="p">,</span> <span class="s1">&#39;downloaded&#39;</span><span class="p">,</span> <span class="s1">&#39;createTime&#39;</span><span class="p">,</span> <span class="s1">&#39;id&#39;</span><span class="p">,</span> <span class="s1">&#39;createTime&#39;</span><span class="p">,</span> <span class="s1">&#39;covers&#39;</span><span class="p">,</span> <span class="s1">&#39;musicMeta&#39;</span><span class="p">,</span> <span class="s1">&#39;authorMeta&#39;</span><span class="p">,</span> \
@@ -14859,7 +14863,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-OutputArea-child">
 
     
-    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[131]:</div>
+    <div class="jp-OutputPrompt jp-OutputArea-prompt">Out[195]:</div>
 
 
 
@@ -14890,46 +14894,46 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
   </thead>
   <tbody>
     <tr>
-      <th>222</th>
+      <th>382</th>
+      <td>Old one 🤎✨ #draft #hairstyle #hairlook #hairtr...</td>
+      <td>263400</td>
+      <td>[]</td>
+      <td>[{'id': '35990', 'name': 'draft', 'title': '',...</td>
+    </tr>
+    <tr>
+      <th>363</th>
+      <td>#fancy #fancypants #fancyaudio</td>
+      <td>65200</td>
+      <td>[]</td>
+      <td>[{'id': '8255', 'name': 'fancy', 'title': '', ...</td>
+    </tr>
+    <tr>
+      <th>947</th>
+      <td>#TimeWarpScan</td>
+      <td>250800000</td>
+      <td>[]</td>
+      <td>[{'id': '1677732212525058', 'name': 'timewarps...</td>
+    </tr>
+    <tr>
+      <th>459</th>
       <td>#horadearrasar</td>
-      <td>150100</td>
+      <td>791000</td>
       <td>[]</td>
       <td>[{'id': '38180458', 'name': 'horadearrasar', '...</td>
     </tr>
     <tr>
-      <th>979</th>
-      <td>#duet with @daltonroe23 Thanks man, means alot...</td>
-      <td>71400</td>
-      <td>[@daltonroe23]</td>
-      <td>[{'id': '30496', 'name': 'duet', 'title': 'Use...</td>
+      <th>758</th>
+      <td>Teehee 🌚 #foryoupage #fyp #foryou #powerliftin...</td>
+      <td>95200</td>
+      <td>[]</td>
+      <td>[{'id': '88764338', 'name': 'foryoupage', 'tit...</td>
     </tr>
     <tr>
-      <th>169</th>
-      <td>Ferrari 😍😍 #F1 #formula1 #ferrari #mercedes #m...</td>
-      <td>91300</td>
+      <th>772</th>
+      <td>She ran away with me during the process of fil...</td>
+      <td>75300</td>
       <td>[]</td>
-      <td>[{'id': '16520', 'name': 'f1', 'title': '', 'c...</td>
-    </tr>
-    <tr>
-      <th>591</th>
-      <td>පවුලේ උන් එක්ක දවසක්</td>
-      <td>12300</td>
-      <td>[]</td>
-      <td>[]</td>
-    </tr>
-    <tr>
-      <th>83</th>
-      <td>#horadearrasar #fy #foryou #tiktok</td>
-      <td>139300</td>
-      <td>[]</td>
-      <td>[{'id': '38180458', 'name': 'horadearrasar', '...</td>
-    </tr>
-    <tr>
-      <th>405</th>
-      <td>Mijn mening over fatburners #foryou #foryoupag...</td>
-      <td>81000</td>
-      <td>[]</td>
-      <td>[{'id': '42164', 'name': 'foryou', 'title': ''...</td>
+      <td>[{'id': '1637342470396934', 'name': 'fypシ', 't...</td>
     </tr>
   </tbody>
 </table>
@@ -14949,7 +14953,20 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<h2 id="Compiling-Frequencies-and-Views-">Compiling Frequencies and Views <a class="anchor" id="compiling" /><a class="anchor-link" href="#Compiling-Frequencies-and-Views-">&#182;</a></h2><p>Now that we've wrangled the data and it is easier to work with, we can begin to analyze the correlation between mentions and playCount (views), and between hashtage and playCount. We can start by finding all hashtags used to see if any of them occur more than once, and doing the same with tags. We also have to take into account no tags and no mentions.</p>
+<h2 id="Hypothesis-">Hypothesis <a class="anchor" id="hypothesis" /><a class="anchor-link" href="#Hypothesis-">&#182;</a></h2><p>We start by definining our null hypothesis as: tags and mentions have no impact on views for TikTok videos
+Our alternative hypothesis is that there is a correlation between tags and mentions and the number of views on tiktoks, that there is a significant difference from 0 for these variables.</p>
+
+</div>
+</div>
+</div>
+</div>
+<div class="jp-Cell jp-MarkdownCell jp-Notebook-cell">
+<div class="jp-Cell-inputWrapper">
+<div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
+</div>
+<div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
+</div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
+<h2 id="Compiling-Frequencies-and-Views-">Compiling Frequencies and Views <a class="anchor" id="compiling" /><a class="anchor-link" href="#Compiling-Frequencies-and-Views-">&#182;</a></h2><h3 id="Get-Frequencies-of-Variables-">Get Frequencies of Variables <a class="anchor" id="getfreq" /><a class="anchor-link" href="#Get-Frequencies-of-Variables-">&#182;</a></h3><p>Now that we've wrangled the data and it is easier to work with, we can begin to analyze the correlation between mentions and playCount (views), and between hashtage and playCount. We can start by finding all hashtags used to see if any of them occur more than once, and doing the same with tags. We also have to take into account no tags and no mentions.</p>
 
 </div>
 </div>
@@ -14959,7 +14976,7 @@ body[data-format='mobile'] .jp-OutputArea-child .jp-OutputArea-output {
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[132]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[196]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#set up two dictionaries for hashtags and mentions to map the tag/mention to the number </span>
@@ -15058,9 +15075,7 @@ fyp 417
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>As we can see from the hashtags, there is a strong sense of repition among them. However, for mentions, there is less repition. From this, I predict that the hashtags will have a stronger correlation to the number of views than the tags will. We can begin to graph these correlations, to see the total views per hashtag and per mention.</p>
-<h2 id="Hypothesis-">Hypothesis <a class="anchor" id="hypothesis" /><a class="anchor-link" href="#Hypothesis-">&#182;</a></h2><p>We start by definining our null hypothesis as" tags and mentions have no impact on views for TikTok videos
-Our alternative hypothesis is that there is a correlation between tags and mentions and the number of views on tiktoks, that there is a significant difference from 0 for these variables.</p>
+<h3 id="Connect-Variables-and-Views-">Connect Variables and Views <a class="anchor" id="connviews" /><a class="anchor-link" href="#Connect-Variables-and-Views-">&#182;</a></h3><p>As we can see from the hashtags, there is a strong sense of repition among them. However, for mentions, there is less repition. From this, I predict that the hashtags will have a stronger correlation to the number of views than the tags will. We can begin to graph these correlations, to see the total views per hashtag and per mention.</p>
 
 </div>
 </div>
@@ -15070,7 +15085,7 @@ Our alternative hypothesis is that there is a correlation between tags and menti
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[133]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[197]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
 <div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#now, we want to map the views to the frequencies for each hashtag/mention, so we </span>
@@ -15134,7 +15149,7 @@ Our alternative hypothesis is that there is a correlation between tags and menti
 </div>
 <div class="jp-InputArea jp-Cell-inputArea"><div class="jp-InputPrompt jp-InputArea-prompt">
 </div><div class="jp-RenderedHTMLCommon jp-RenderedMarkdown jp-MarkdownOutput " data-mime-type="text/markdown">
-<p>Now that we've mapped hashtag and mention frequency and the number of views by hashtag and mention, we can map out frequency vs views.</p>
+<h3 id="Connect-Frequencies-and-Views-">Connect Frequencies and Views <a class="anchor" id="connfreq" /><a class="anchor-link" href="#Connect-Frequencies-and-Views-">&#182;</a></h3><p>Now that we've mapped hashtag and mention frequency and the number of views by hashtag and mention, we can map out frequency vs views.</p>
 
 </div>
 </div>
@@ -15144,12 +15159,10 @@ Our alternative hypothesis is that there is a correlation between tags and menti
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[134]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[198]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
-
-<span class="c1">#create two more dictionaries. These will store views by frequency for mentions and hashtags</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create two more dictionaries. These will store views by frequency for mentions and hashtags</span>
 <span class="n">views_by_freq_hashtag</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 <span class="n">views_by_freq_ment</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
 
@@ -15277,12 +15290,10 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[135]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[199]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">seaborn</span> <span class="k">as</span> <span class="nn">sns</span>
-
-<span class="c1">#change the plot size to increase the x axis length</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#change the plot size to increase the x axis length</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">figure</span><span class="p">(</span><span class="n">figsize</span><span class="o">=</span><span class="p">(</span><span class="mi">8</span><span class="p">,</span> <span class="mi">7</span><span class="p">))</span>
 <span class="c1">#use the hashtag frequency as the x axis and the hashtag views as the y axis</span>
 <span class="n">ax</span> <span class="o">=</span> <span class="n">sns</span><span class="o">.</span><span class="n">barplot</span><span class="p">(</span><span class="n">x</span><span class="o">=</span><span class="n">hashtag_freqs</span><span class="p">,</span> <span class="n">y</span><span class="o">=</span><span class="n">hashtag_views</span><span class="p">)</span>
@@ -15347,16 +15358,10 @@ jp-needs-light-background
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[136]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In&nbsp;[200]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
      <div class="CodeMirror cm-s-jupyter">
-<div class=" highlight hl-ipython3"><pre><span></span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="kn">from</span> <span class="nn">sklearn.linear_model</span> <span class="kn">import</span> <span class="n">LinearRegression</span>
-<span class="kn">from</span> <span class="nn">sklearn</span> <span class="kn">import</span> <span class="n">datasets</span><span class="p">,</span> <span class="n">linear_model</span>
-<span class="kn">import</span> <span class="nn">statsmodels.api</span> <span class="k">as</span> <span class="nn">sm</span>
-<span class="kn">from</span> <span class="nn">scipy</span> <span class="kn">import</span> <span class="n">stats</span>
-
-<span class="c1">#create a numpy array for the linear regression, and reshape it to create a 2D array, which</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="c1">#create a numpy array for the linear regression, and reshape it to create a 2D array, which</span>
 <span class="c1"># is the form of array necessary for a linear regression</span>
 <span class="n">X</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">hashtag_freqs</span><span class="p">)</span><span class="o">.</span><span class="n">reshape</span><span class="p">(</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">)</span>
 <span class="n">y</span> <span class="o">=</span> <span class="n">hashtag_views</span>
@@ -15432,7 +15437,7 @@ Dep. Variable:                      y   R-squared:                       0.195
 Model:                            OLS   Adj. R-squared:                  0.176
 Method:                 Least Squares   F-statistic:                     10.20
 Date:                Wed, 11 May 2022   Prob (F-statistic):            0.00266
-Time:                        13:54:29   Log-Likelihood:                -841.92
+Time:                        14:08:47   Log-Likelihood:                -841.92
 No. Observations:                  44   AIC:                             1688.
 Df Residuals:                      42   BIC:                             1691.
 Df Model:                           1                                         
@@ -15459,7 +15464,7 @@ Dep. Variable:                      y   R-squared:                       0.734
 Model:                            OLS   Adj. R-squared:                  0.468
 Method:                 Least Squares   F-statistic:                     2.759
 Date:                Wed, 11 May 2022   Prob (F-statistic):              0.345
-Time:                        13:54:29   Log-Likelihood:                -61.874
+Time:                        14:08:47   Log-Likelihood:                -61.874
 No. Observations:                   3   AIC:                             127.7
 Df Residuals:                       1   BIC:                             125.9
 Df Model:                           1                                         
